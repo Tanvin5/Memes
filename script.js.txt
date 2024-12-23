@@ -1,0 +1,30 @@
+document.getElementById('memeForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const title = document.getElementById('memeTitle').value;
+    const imageUrl = document.getElementById('memeImage').value;
+
+    addMeme(title, imageUrl);
+
+    // Clear the input fields
+    document.getElementById('memeTitle').value = '';
+    document.getElementById('memeImage').value = '';
+});
+
+function addMeme(title, imageUrl) {
+    const memeContainer = document.getElementById('memeContainer');
+
+    const memeDiv = document.createElement('div');
+    memeDiv.classList.add('meme');
+
+    const memeTitle = document.createElement('h2');
+    memeTitle.textContent = title;
+
+    const memeImage = document.createElement('img');
+    memeImage.src = imageUrl;
+    memeImage.alt = title;
+
+    memeDiv.appendChild(memeTitle);
+    memeDiv.appendChild(memeImage);
+    memeContainer.appendChild(memeDiv);
+}
